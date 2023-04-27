@@ -1,5 +1,6 @@
 # -- ALGORITHMIC LIBRARY--
 import sys
+
 alg_types =[
 'Searching',
 'Sorting'
@@ -19,9 +20,9 @@ def search():
 def sorting():
     from Sorting_algorithms import all_sortings
     return all_sortings()
-    
+
 alg_imports =[
-    search, 
+    search,
     sorting
 ]
 #----------------------------------------------
