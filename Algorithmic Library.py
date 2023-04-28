@@ -36,3 +36,4 @@ alg_imports[type_choice]()
 
 close = input(':')
 sys.exit()
+ 
