@@ -1,24 +1,24 @@
-# define the DFS function
-def dfs(graph, start, visited=None):
-    if visited is None:
-        visited = set()   # create a set to store visited nodes
+# Write your code here :-)
+def info():
+    print('-'*40)
+    print('''
+    Breadth First Search
+''')
+    print('-'*40)
 
-    visited.add(start)   # add the starting node to the visited set
-    print(start, end=' ')  # print the node that is being visited
+from collections import deque
 
-    # recursively visit the neighbors of the current node
-    for neighbor in graph[start]:
-        if neighbor not in visited:
-            dfs(graph, neighbor, visited)
+def bfs(array, target):
+    visited = set()
+    queue = deque([target])
 
-# example usage
-graph = {
-    'A': ['B', 'C'],
-    'B': ['D', 'E'],
-    'C': ['F'],
-    'D': [],
-    'E': ['F'],
-    'F': []
-}
-print(graph)
-dfs(graph, 'A')
+    while queue:
+        vertex = queue.popleft()
+
+        if vertex not in visited:
+            visited.add(vertex)
+            print(vertex)
+
+            for neighbor in array[vertex]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
