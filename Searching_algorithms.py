@@ -1,5 +1,6 @@
 # Searching Algorithms #
 #import time
+import ast
 searchings = [
 'Linear',
 'Binary',
@@ -7,7 +8,9 @@ searchings = [
 'Interpolation',
 'Exponential',
 'Fibonacci',
-'Ternary'
+'Ternary',
+'DFS',
+'BFS'
 ]
 def linear(array, target):
     from searching.linear_search import info, linear_search
@@ -38,6 +41,14 @@ def ternary(array, target):
     from searching.ternary_search import info, ternary_search
     info()
     print(ternary_search(array, target))
+def dfs(array, target):
+    from searching.depth_first_seach import info, dfs
+    info()
+    dfs(array, target)
+def bfs(array, target):
+    from searching.breadth_first_search import info, bfs
+    info()
+    bfs(array, target)
 search_imports =[
     linear,
     binary,
@@ -45,7 +56,9 @@ search_imports =[
     interpolation,
     exponential,
     fibonacci,
-    ternary
+    ternary,
+    dfs,
+    bfs
 ]
 
 def all_searchings():
@@ -58,18 +71,11 @@ def all_searchings():
     print()
     #print(searchings[search_choice])
     #------------------------------------------
-    arr = input('Enter the array: ')
+    arr = input("Enter an list/ dictionary: ")
+    arr = ast.literal_eval(arr)
+    tar = input('Enter the target: ')
     try:
-        tar = int(input('Enter the target: '))
-    except ValueError: pass
-    list_comp = ['[', ']', '"', "'", ' ']
-    for comp in list_comp:
-        arr = arr.replace(comp, '')
-    arr = arr.split(',')
-    try:
-        for i in range(len(arr)):
-            arr[i] = int(arr[i])
-            # fix this to return the original ones
+        tar = int(tar)
     except ValueError: pass
     #-----------------------
     search_imports[search_choice](arr, tar)
