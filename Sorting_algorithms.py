@@ -1,5 +1,6 @@
 # Sorting Algorithms #
 #import time
+
 sortings = [
 'Bubble',
 'Selection',
@@ -76,15 +77,8 @@ def all_sortings():
     sort_choice = int(input('Number: ')) - 1
     print()
     #------------------------------------------
-    arr = input('Enter the array: ')
-    list_comp = ['[', ']', '"', "'", ' ']
-    for comp in list_comp:
-        arr = arr.replace(comp, '')
-    arr = arr.split(',')
-    try:
-        for i in range(len(arr)):
-            arr[i] = int(arr[i])
-            # fix this to return the original ones
-    except ValueError: pass
+    import ast
+    arr = input("Enter an list/ dictionary: ")
+    arr = ast.literal_eval(arr)
     #------------------------------------------
     sort_imports[sort_choice](arr)
