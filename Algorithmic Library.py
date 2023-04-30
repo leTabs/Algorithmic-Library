@@ -3,7 +3,8 @@ import sys
 
 alg_types =[
 'Searching',
-'Sorting'
+'Sorting',
+'Graph'
 ]
 
 index = 1
@@ -20,10 +21,15 @@ def search():
 def sorting():
     from Sorting_algorithms import all_sortings
     return all_sortings()
+def graphs():
+    from Graph_algorithms import all_graphings
+    return all_graphings()
+
 
 alg_imports =[
     search,
-    sorting
+    sorting,
+    graphs
 ]
 #----------------------------------------------
 type_choice = int(input('Number: ')) - 1
@@ -36,4 +42,3 @@ alg_imports[type_choice]()
 
 close = input(':')
 sys.exit()
- 
